@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "sealcrate"
+version = "0.1.0"
+description = "SealCrate is a Python library for creating and managing various types of archive files with the ability to add cryptographic signatures for enhanced security."
+authors = ["Marcin Pilarczyk <marcinpilarczyk@me.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
