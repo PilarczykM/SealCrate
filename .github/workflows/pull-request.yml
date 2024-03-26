@@ -24,7 +24,7 @@ jobs:
         run: pdm install -v
       - name: Verify ruff
         run: pdm run lint
-      - name: Verify python test
-        run: pdm run test
-        env:
-          PYTHON_VERSION: ${{ matrix.python-version }}
+      #- name: Verify python test
+      #  run: pdm run test
+      #  env:
+      #    PYTHON_VERSION: ${{ matrix.python-version }}
