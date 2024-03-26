@@ -1,0 +1,30 @@
+on:
+  pull_request:
+    branches: [main]
+
+name: Test Action
+
+jobs:
+  Testing:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        os: [windows-latest, ubuntu-latest]
+    name: Test the action
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: true
+          allow-python-prereleases: true
+      - name: Install dependencies
+        run: pdm install -v
+      - name: Verify ruff
+        run: pdm run lint
+      #- name: Verify python test
+      #  run: pdm run test
+      #  env:
+      #    PYTHON_VERSION: ${{ matrix.python-version }}
